@@ -1,19 +1,26 @@
 <header>
   <!-- <img src="/assets/images/logo.png" alt="logo" class="logo" /> -->
   <p
+    routerLink="/"
     style="
       font-size: 35px;
       color: #cc0066;
       font-weight: bold;
       margin-right: 5px;
+      cursor: pointer;
     "
   >
     IcyT!cy
   </p>
   <nav>
-    <a href="#" class="active">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">Contact</a>
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a routerLink="/shop" routerLinkActive="active">Shop</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
   </nav>
   <div style="margin-left: 2rem; margin-right: 5rem">
     <a href="#" style="margin-right: 0.5rem">

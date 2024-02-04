@@ -55,11 +55,13 @@
           font-size: medium;
           border: 0.5px solid #cc0066;
           border-radius: 6px;
+          cursor: pointer;
         "
       >
         <mat-icon>shopping_cart</mat-icon>
       </button>
       <button
+        routerLink="/shop/{{ product.id }}"
         style="
           padding-left: 10px;
           padding-right: 10px;
@@ -71,6 +73,7 @@
           font-size: medium;
           border: 0.5px solid #cc0066;
           border-radius: 6px;
+          cursor: pointer;
         "
       >
         Veiw

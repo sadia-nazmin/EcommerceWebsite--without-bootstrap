@@ -1,0 +1,41 @@
+<div class="row" style="display: flex; flex-direction: row" *ngIf="product">
+  <div class="col-6" style="flex-direction: column">
+    <img
+      src="{{ product.pictureUrl }}"
+      alt="{{ product.name }}"
+      style="width: 100%"
+    />
+  </div>
+  <div class="col-6" style="margin-top: 2rem; flex-direction: column">
+    <h1>{{ product.name }}</h1>
+    <p style="font-size: 16px; margin-top: -10px">
+      {{ product.price | currency }}
+    </p>
+    <div style="display: flex; justify-content: baseline; align-items: center">
+      <i style="cursor: pointer; font-size: 16px; margin-right: 4px">
+        <mat-icon>remove_circle</mat-icon>
+      </i>
+      <span style="font-size: 1.4em; font-weight: bold; padding-bottom: 5px">
+        3
+      </span>
+      <i style="cursor: pointer; font-size: 16px; margin-left: 4px"
+        ><mat-icon>add_circle</mat-icon>
+      </i>
+      <button
+        style="
+          margin-left: 15px;
+          padding: 5px 10px;
+          border: 2px solid #007bff;
+          color: #007bff;
+          background-color: #fff;
+        "
+      >
+        Add to cart
+      </button>
+    </div>
+    <div class="row" style="margin-top: 1.2rem; flex-direction: row">
+      <h2>Description</h2>
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+</div>
