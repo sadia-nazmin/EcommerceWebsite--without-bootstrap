@@ -1,205 +1,213 @@
-<div class="container">
-  <div
-    style="display: flex; flex-wrap: wrap; margin: 0 -5px; flex-direction: row"
-  >
-    <div>
-      <section
-        style="
-          flex-direction: column;
-          margin-right: 10px;
-          margin-left: 10px;
-          flex: 1;
-          padding: 0 10px;
-        "
-      >
-        <div
-          style="
-            margin-top: 0px;
-            margin-bottom: 20px;
-            /* padding-left: 5px;
-            padding-right: 5px; */
-            width: 250px;
-            justify-content: center;
-            align-items: center;
-            background-color: #fcf6f5;
-          "
-        >
-          <h2 style="margin-left: 5.5rem; color: #cc0066; font-weight: bold">
-            Sort
-          </h2>
-          <select class="custom-select" (change)="onSortSelected($event)">
-            <option *ngFor="let sort of sortOptions" [value]="sort.value">
-              {{ sort.name }}
-            </option>
-          </select>
-        </div>
-        <div
-          style="
-            margin-top: 0px;
-            margin-bottom: 20px;
-            padding-left: 5px;
-            padding-right: 5px;
-            padding-bottom: 5px;
-            box-shadow: 3px 3px 3px rgba(7, 7, 7, 0.1);
-            background-color: rgb(252, 251, 251);
-            width: 250px;
-            /* border-left: 0.5px solid #e8dbd9;
-            border-top: 0.5px solid #e8dbd9; */
-          "
-        >
-          <h2
-            style="
-              margin-left: 5.5rem;
-              padding-top: 0.5rem;
-              padding-bottom: 0.5rem;
-              color: #cc0066;
-              justify-content: center;
-              align-items: center;
-              font-weight: bold;
-            "
-          >
-            Brands
-          </h2>
-          <mat-divider></mat-divider>
-          <mat-selection-list #shoes [multiple]="false">
-            <mat-list-option
-              style="height: 36px"
-              *ngFor="let value of brands"
-              [class.active]="value.id === shopParams.brandId"
-              [value]="value.id"
-              (click)="onBrandSelected(value.id)"
-            >
-              {{ value.name }}
-            </mat-list-option>
-          </mat-selection-list>
-        </div>
-        <div
-          style="
-            margin-top: 0px;
-            margin-bottom: 20px;
-            padding-left: 5px;
-            padding-right: 5px;
-            padding-bottom: 5px;
-            width: 250px;
-            box-shadow: 3px 3px 3px rgba(7, 7, 7, 0.1);
-            background-color: rgb(252, 251, 251);
-            /* border-left: 0.5px solid #e8dbd9;
-            border-top: 0.5px solid #e8dbd9; */
-          "
-        >
-          <h2
-            style="
-              margin-left: 5.5rem;
-              padding-top: 0.5rem;
-              padding-bottom: 0.5rem;
-              color: #cc0066;
-              justify-content: center;
-              align-items: center;
-              font-weight: bold;
-            "
-          >
-            Types
-          </h2>
-          <mat-divider></mat-divider>
-          <mat-selection-list #shoes [multiple]="false">
-            <mat-list-option
-              style="height: 36px"
-              *ngFor="let value of types"
-              [class.active]="value.id === shopParams.typeId"
-              [value]="value.id"
-              (click)="onTypeSelected(value.id)"
-            >
-              {{ value.name }}
-            </mat-list-option>
-          </mat-selection-list>
-        </div>
-      </section>
-    </div>
-
-    <div
+<div
+  style="display: flex; flex-wrap: wrap; margin: 0 -5px; flex-direction: row"
+>
+  <div>
+    <section
       style="
-        padding: 0 2px;
-        display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
-        width: 75%;
+        margin-right: 10px;
+        margin-left: 10px;
+        flex: 1;
+        padding: 0 10px;
       "
     >
       <div
-        class="row"
         style="
-          display: flex;
-          flex-wrap: wrap;
-          margin: 0 -5px;
-          flex-direction: row;
-          /* flex: 0 0 80%;
-        width: 100%; */
+          margin-top: 0px;
+          margin-bottom: 20px;
+          /* padding-left: 5px;
+            padding-right: 5px; */
+          width: 250px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fcf6f5;
         "
       >
-        <app-paging-header
-          [totalCount]="totalCount"
-          [pageNumber]="shopParams.pageNumber"
-          [pageSize]="shopParams.pageSize"
-        ></app-paging-header>
-        <div class="input-btn-container">
-          <input
-            (keyup.enter)="onSearch()"
-            type="text"
-            placeholder="Search"
-            class="form-control"
-            #search
-          />
-          <button class="search-btn" (click)="onSearch()">Search</button>
-          <button class="reset-btn" (click)="onReset()">Reset</button>
-        </div>
-      </div>
-      <div>
-        <section>
-          <div
-            style="
-              margin-bottom: 15px;
-              display: flex;
-              flex-wrap: wrap;
-              margin: 0 -10px;
-              flex-wrap: wrap;
-              flex-direction: row;
-            "
+        <h2 style="margin-left: 5.5rem; color: #cc0066; font-weight: bold">
+          Sort
+        </h2>
+        <mat-form-field>
+          <!-- <mat-label>Select an option</mat-label> -->
+          <mat-select
+            (selectionChange)="onSortSelected()"
+            [(value)]="selectedSortOption"
           >
-            <div>
-              <div
-                class="col"
-                style="
-                  height: 550px;
-                  width: 370;
-                  flex: 1;
-                  padding: 0 10px;
-                  flex-direction: column;
-                "
-                *ngFor="let value of products"
-              >
-                <app-product-item [product]="value"></app-product-item>
-              </div>
+            <mat-option *ngFor="let sort of sortOptions" [value]="sort.value">
+              {{ sort.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- <select class="custom-select" (change)="onSortSelected($event)">
+            <option *ngFor="let sort of sortOptions" [value]="sort.value">
+              {{ sort.name }}
+            </option>
+          </select> -->
+      </div>
+      <div
+        style="
+          margin-top: 0px;
+          margin-bottom: 20px;
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-bottom: 5px;
+          box-shadow: 3px 3px 3px rgba(7, 7, 7, 0.1);
+          background-color: rgb(252, 251, 251);
+          width: 250px;
+          /* border-left: 0.5px solid #e8dbd9;
+            border-top: 0.5px solid #e8dbd9; */
+        "
+      >
+        <h2
+          style="
+            margin-left: 5.5rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            color: #cc0066;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+          "
+        >
+          Brands
+        </h2>
+        <mat-divider></mat-divider>
+        <mat-selection-list #shoes [multiple]="false">
+          <mat-list-option
+            style="height: 36px"
+            *ngFor="let value of brands"
+            [class.active]="value.id === shopParams.brandId"
+            [value]="value.id"
+            (click)="onBrandSelected(value.id)"
+          >
+            {{ value.name }}
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+      <div
+        style="
+          margin-top: 0px;
+          margin-bottom: 20px;
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-bottom: 5px;
+          width: 250px;
+          box-shadow: 3px 3px 3px rgba(7, 7, 7, 0.1);
+          background-color: rgb(252, 251, 251);
+          /* border-left: 0.5px solid #e8dbd9;
+            border-top: 0.5px solid #e8dbd9; */
+        "
+      >
+        <h2
+          style="
+            margin-left: 5.5rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            color: #cc0066;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+          "
+        >
+          Types
+        </h2>
+        <mat-divider></mat-divider>
+        <mat-selection-list #shoes [multiple]="false">
+          <mat-list-option
+            style="height: 36px"
+            *ngFor="let value of types"
+            [class.active]="value.id === shopParams.typeId"
+            [value]="value.id"
+            (click)="onTypeSelected(value.id)"
+          >
+            {{ value.name }}
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </section>
+  </div>
+
+  <div
+    style="
+      padding: 0 2px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      width: 75%;
+    "
+  >
+    <div
+      class="row"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -5px;
+        flex-direction: row;
+        justify-content: space-between;
+        justify-self: center;
+        /* flex: 0 0 80%;
+        width: 100%; */
+      "
+    >
+      <app-paging-header
+        [totalCount]="totalCount"
+        [pageNumber]="shopParams.pageNumber"
+        [pageSize]="shopParams.pageSize"
+      ></app-paging-header>
+      <div class="input-btn-container">
+        <input
+          (keyup.enter)="onSearch()"
+          type="text"
+          placeholder="Search"
+          class="form-control"
+          #search
+        />
+        <button class="search-btn" (click)="onSearch()">Search</button>
+        <button class="reset-btn" (click)="onReset()">Reset</button>
+      </div>
+    </div>
+    <div>
+      <section style="display: flex; flex-direction: column">
+        <div
+          style="
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 5px;
+            flex-direction: column;
+          "
+        >
+          <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+            <div
+              style="
+                height: 575px;
+                width: 400px;
+                margin-bottom: 10px;
+                margin-right: 20px;
+              "
+              *ngFor="let value of products"
+            >
+              <app-product-item [product]="value"></app-product-item>
             </div>
           </div>
-          <div
-            *ngIf="totalCount > 0"
-            style="display: flex; justify-content: center; margin-bottom: 10px"
-          >
-            <!-- <mat-paginator
+        </div>
+        <div
+          *ngIf="totalCount > 0"
+          style="display: flex; justify-content: center; margin-bottom: 10px"
+        >
+          <!-- <mat-paginator
               [length]="totalCount"
               [pageSize]="shopParams.pageSize"
               aria-label="Select page"
             >
             </mat-paginator> -->
-            <app-pager
-              [totalCount]="totalCount"
-              [pageNumber]="shopParams.pageNumber"
-              [pageSize]="shopParams.pageSize"
-              (pageChanged)="onPageChanged($event)"
-            ></app-pager>
-          </div>
-        </section>
-      </div>
+          <app-pager
+            [totalCount]="totalCount"
+            [pageNumber]="shopParams.pageNumber"
+            [pageSize]="shopParams.pageSize"
+            (pageChanged)="onPageChanged($event)"
+          ></app-pager>
+        </div>
+      </section>
     </div>
   </div>
 </div>

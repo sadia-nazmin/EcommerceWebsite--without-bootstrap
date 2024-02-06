@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '../shared/shared.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopRoutingModule } from './shop-routing.module';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [ShopComponent, ProductItemComponent, ProductDetailsComponent],
@@ -28,6 +29,7 @@ import { ShopRoutingModule } from './shop-routing.module';
     MatIconModule,
     SharedModule,
     ShopRoutingModule,
+    MatDividerModule,
   ],
 })
 export class ShopModule {}

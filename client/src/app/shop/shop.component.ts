@@ -1,8 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Product } from '../shared/models/product';
 import { ShopService } from './shop.service';
-import { response } from 'express';
-import { error } from 'console';
 import { Brand } from '../shared/models/brand';
 import { Type } from '../shared/models/type';
 import { ShopParams } from '../shared/models/shopParams';
@@ -18,6 +16,7 @@ export class ShopComponent implements OnInit {
   brands: Brand[] = [];
   types: Type[] = [];
   shopParams = new ShopParams();
+  selectedSortOption: string = 'name';
   sortOptions = [
     { name: 'Alphabetical', value: 'name' },
     { name: 'Price: Low to high', value: 'priceAsc' },
@@ -71,8 +70,8 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
 
-  onSortSelected(event: any) {
-    this.shopParams.sort = event.target.value;
+  onSortSelected() {
+    this.shopParams.sort = this.selectedSortOption;
     this.getProducts();
   }
 

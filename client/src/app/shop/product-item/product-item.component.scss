@@ -7,3 +7,43 @@ li {
   margin: 0;
   padding: 0;
 }
+
+.cart-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
+  background-color: #fcf6f5;
+  color: black;
+  width: 110px;
+  height: 40px;
+  font-size: medium;
+  border: 0.5px solid #cc0066;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.cart-btn:hover {
+  transform: scale(1.07);
+  background-color: #cc0066;
+}
+
+.veiw-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 5px;
+  background-color: #fcf6f5;
+  color: black;
+  width: 110px;
+  height: 40px;
+  font-size: medium;
+  border: 0.5px solid #cc0066;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.veiw-btn:hover {
+  transform: scale(1.07);
+  background-color: #cc0066;
+}

@@ -1,85 +1,27 @@
-<header>
-  <!-- <img src="/assets/images/logo.png" alt="logo" class="logo" /> -->
-  <p
-    routerLink="/"
-    style="
-      font-size: 35px;
-      color: #cc0066;
-      font-weight: bold;
-      margin-right: 5px;
-      cursor: pointer;
-    "
-  >
-    IcyT!cy
-  </p>
-  <nav>
+<header id="nav-bar-container">
+  <p routerLink="/" class="logo">IcyT!cy</p>
+  <nav class="navigation">
     <a
+      class="nav-item"
       routerLink="/"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
       >Home</a
     >
-    <a routerLink="/shop" routerLinkActive="active">Shop</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
-  </nav>
-  <div style="margin-left: 2rem; margin-right: 5rem">
-    <a href="#" style="margin-right: 0.5rem">
-      <button
-        style="
-          padding-left: 8px;
-          padding-right: 8px;
-          margin-right: 3px;
-          background-color: #cc0066;
-          color: white;
-          width: 95px;
-          height: 42px;
-          font-size: 20px;
-          border: 0.5px solid #cc0066;
-          border-radius: 6px;
-        "
-      >
-        Login
-      </button>
-    </a>
-    <a href="#" style="margin-right: 0.5rem; padding-right: 5px">
-      <button
-        style="
-          padding-left: 8px;
-          padding-right: 8px;
-          margin-right: 3px;
-          background-color: #cc0066;
-          color: white;
-          width: 95px;
-          height: 42px;
-          font-size: 20px;
-          border: 0.5px solid #cc0066;
-          border-radius: 6px;
-        "
-      >
-        Sign up
-      </button>
-    </a>
-    <a
-      href="#"
-      style="
-        position: relative;
-        text-decoration: none;
-        color: #000;
-        margin-left: 10px;
-        margin-right: 90px;
-      "
+    <a class="nav-item" routerLink="/shop" routerLinkActive="active">Shop</a>
+    <a class="nav-item" routerLink="/contact" routerLinkActive="active"
+      >Contact</a
     >
-      <mat-icon
-        style="
-          padding-right: 2.4rem;
-          padding-bottom: 9px;
-          padding-top: 3px;
-          margin-bottom: -0.6rem;
-          font-size: 36px;
-          color: rgb(2, 2, 2);
-        "
-        >shopping_cart</mat-icon
-      >
+  </nav>
+  <div class="right-panel">
+    <a href="#">
+      <button mat-stroked-button class="login-btn">Login</button>
+    </a>
+    <a href="#">
+      <button mat-stroked-button class="sign-up-btn">Sign up</button>
+    </a>
+    <a href="#" class="cart">
+      <mat-icon class="cart-icon"> shopping_cart </mat-icon>
       <div class="cart-no">3</div>
     </a>
   </div>

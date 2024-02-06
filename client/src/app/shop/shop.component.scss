@@ -36,6 +36,11 @@ li {
 //   margin-right: 10px;
 //   margin-left: 10px;
 // }
+::ng-deep {
+  .mdc-text-field {
+    background-color: white !important;
+  }
+}
 
 .custom-select {
   appearance: none; /* Remove default styling on certain browsers */
@@ -76,15 +81,18 @@ li {
 
 /* Input and Button Container Styles */
 .input-btn-container {
-  display: block;
-  margin-left: 10px;
-  justify-content: flex-end;
-  padding-left: 50px;
+  // display: flex;
+  // margin-left: 10px;
+  // justify-content: flex-end;
   // align-items: flex-end;
-  //
+
   // margin-top: 2px;
   // justify-content: center;
   // align-items: center;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: white;
 }
 
 /* Form Control (Input) Styles */
@@ -98,6 +106,7 @@ li {
   border: 1px solid #cc0066;
   border-radius: 20px;
   margin-top: -2.5px;
+  padding-left: 16px;
   // margin-bottom: 10px;
 }
 
