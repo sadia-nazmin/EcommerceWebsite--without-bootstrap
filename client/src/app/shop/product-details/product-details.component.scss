@@ -1,0 +1,110 @@
+#product-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  .product-item-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    padding-top: 24px;
+    // max-width: 830px;
+    .product-picture {
+      img {
+        width: 50vw;
+        max-width: 400px;
+        height: auto;
+        background-color: rgb(229, 224, 224);
+      }
+    }
+
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40vw;
+      max-width: 400px;
+      height: auto;
+      padding-left: 12px;
+
+      .product-name {
+        color: #cc0066;
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+
+      .product-price {
+        margin: 0 0 16px;
+        color: #88818a;
+      }
+
+      .Quantity {
+        margin: 0 0 8px;
+        font-weight: 500;
+        color: #cc0066;
+      }
+
+      .quantity-div {
+        margin: 0 0 20px;
+
+        .span-div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          height: 32px;
+          width: 102px;
+          border: 0.5px solid #88818a;
+          padding: 0 8px;
+          margin: 0 0 8px;
+
+          .icon {
+            color: #88818a;
+            font-size: 20px;
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            &:hover {
+              color: #cc0066;
+            }
+          }
+
+          .span {
+            color: #88818a;
+            font-size: 16px;
+          }
+        }
+
+        .add-to-cart-btn {
+          height: 33px;
+          width: 120px;
+          padding: 0;
+          border: 0.5px solid #88818a;
+          background-color: inherit;
+          color: #88818a;
+          cursor: pointer;
+          transition: background-color 0.1s ease;
+          &:hover {
+            background-color: #cc0066;
+            color: white;
+            transform: scale(1.05);
+            border: none;
+          }
+        }
+      }
+
+      .Description {
+        margin: 0 0 8px;
+        font-weight: 500;
+        color: #cc0066;
+      }
+
+      .product-description {
+        margin: 0 0 16px;
+        color: #88818a;
+      }
+    }
+  }
+}

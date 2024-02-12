@@ -1,45 +1,13 @@
-<mat-card
-  *ngIf="product"
-  style="
-    margin-bottom: 10px;
-    margin-top: 10px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-    background-color: rgb(252, 251, 251);
-    height: 570px;
-    width: 400px;
-  "
->
-  <img
-    src="{{ product.pictureUrl }}"
-    alt="{{ product.name }}"
-    style="background-color: rgb(205, 197, 197); margin-bottom: 10px"
-  />
-  <div style="display: flex; flex-direction: column; padding: 15px">
-    <a style="text-decoration: none" href="">
-      <h2
-        style="
-          text-transform: uppercase;
-          margin-bottom: 3px;
-          color: #cc0066;
-          font-weight: bold;
-        "
-      >
-        {{ product.name }}
-      </h2>
+<mat-card class="card" *ngIf="product">
+  <img class="img" src="{{ product.pictureUrl }}" alt="{{ product.name }}" />
+  <div class="card-body">
+    <a class="product-name" href="">
+      {{ product.name }}
     </a>
-    <span style="margin-bottom: 15px; font-weight: bold">{{
-      product.price | currency
-    }}</span>
-    <div
-      style="
-        margin: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      "
-    >
+    <span class="product-price">{{ product.price | currency }}</span>
+    <div class="btn-div">
       <button class="cart-btn">
-        <mat-icon>shopping_cart</mat-icon>
+        <mat-icon class="icon">shopping_cart</mat-icon>
       </button>
       <button class="veiw-btn" routerLink="/shop/{{ product.id }}">Veiw</button>
     </div>

@@ -1,8 +1,8 @@
-/* Flex Container Styles */
-.flex-container {
+.paging-header {
   display: flex;
-  justify-content: space-between;
-  // align-items: center;
-  padding-bottom: 2px; /* Adjust as needed */
-  padding-right: 50px;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  color: #cc0066;
+  font-size: 12px;
 }

@@ -1,20 +1,9 @@
-h1,
-h2,
-h3,
-p,
-ul,
-li {
-  margin: 0;
-  padding: 0;
-}
-
 .container {
-  // margin-top: 130px;
-  padding-top: 120px;
-  // max-width: 1000px; /* Set a maximum width if desired */
-  // margin-left: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 76px;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
   box-sizing: border-box;
   background-color: #fcf6f5;
+  min-height: 100vh;
 }

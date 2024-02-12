@@ -1,12 +1,31 @@
-<div class="row" style="display: flex; flex-direction: row" *ngIf="product">
-  <div class="col-6" style="flex-direction: column">
-    <img
-      src="{{ product.pictureUrl }}"
-      alt="{{ product.name }}"
-      style="width: 100%"
-    />
+<div id="product-container">
+  <div class="product-item-div" *ngIf="product">
+    <div class="product-picture">
+      <img src="{{ product.pictureUrl }}" alt="{{ product.name }}" />
+    </div>
+    <div class="product-details">
+      <h1 class="product-name">{{ product.name }}</h1>
+      <p class="product-price">{{ product.price | currency }}</p>
+      <h4 class="Quantity">Quantity</h4>
+      <div class="quantity-div">
+        <div class="span-div">
+          <mat-icon class="icon">remove</mat-icon>
+          <span class="span"> 3 </span>
+          <mat-icon class="icon">add</mat-icon>
+        </div>
+        <button class="add-to-cart-btn">Add to cart</button>
+      </div>
+      <h4 class="Description">Description</h4>
+      <p class="product-description">{{ product.description }}</p>
+    </div>
   </div>
-  <div class="col-6" style="margin-top: 2rem; flex-direction: column">
+</div>
+
+<!-- <div class="product-item-div" *ngIf="product">
+  <div class="product-picture">
+    <img src="{{ product.pictureUrl }}" alt="{{ product.name }}" />
+  </div>
+  <div class="product-details" style="margin-top: 2rem; flex-direction: column">
     <h1>{{ product.name }}</h1>
     <p style="font-size: 16px; margin-top: -10px">
       {{ product.price | currency }}
@@ -38,4 +57,4 @@
       <p>{{ product.description }}</p>
     </div>
   </div>
-</div>
+</div> -->

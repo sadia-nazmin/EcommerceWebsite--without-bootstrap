@@ -11,7 +11,7 @@
   box-sizing: border-box;
   position: fixed;
   z-index: 1000;
-  background-color: rgb(251, 251, 251);
+  background-color: rgb(249, 247, 247);
 
   .logo {
     font-size: 28px;
@@ -47,11 +47,15 @@
       height: 28px;
       min-width: fit-content;
       border-color: #cc0066;
+      background-color: white;
       color: #cc0066;
       font-size: 12px;
+      cursor: pointer;
+      transition: background-color 0.1s ease;
       &:hover {
         background-color: #cc0066;
         color: white;
+        transform: scale(1.05);
       }
     }
 

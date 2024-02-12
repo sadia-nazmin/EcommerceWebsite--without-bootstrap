@@ -1,151 +1,159 @@
-h1,
-h2,
-h3,
-p,
-ul,
-li {
-  margin: 0;
-  padding: 0;
-}
+#shop-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 48px;
+  padding-right: 48px;
 
-.container {
-  width: 100%;
-  // max-width: 1200px; /* Adjust as needed */
-  margin: 0 auto; /* Center the container */
-}
+  .sorting-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 10px;
 
-// /* Basic row style */
-// .row {
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin: 0 -10px;
-//   flex-direction: row;
-// }
+    .sort {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
+      margin-bottom: 8px;
 
-// /* Basic column style */
-// .col {
-//   flex: 1;
-//   padding: 0 10px;
-//   flex-direction: column;
-// }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: 4px;
+        padding-bottom: 0;
+        color: #cc0066;
+      }
 
-// /* Filter section */
-// .filter-section {
-//   flex: 0 0 25%;
-//   flex-direction: column;
-//   margin-right: 10px;
-//   margin-left: 10px;
-// }
-::ng-deep {
-  .mdc-text-field {
-    background-color: white !important;
+      ::ng-deep {
+        .mat-mdc-text-field-wrapper {
+          display: flex !important;
+          align-items: center !important;
+          width: 200px;
+          height: 50px;
+        }
+        .mdc-text-field {
+          background-color: white !important;
+          font-size: 8px !important;
+          color: #cc0066 !important;
+        }
+        .mat-mdc-select-min-line {
+          font-size: 12px !important;
+        }
+      }
+    }
+
+    .brand,
+    .type {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0px;
+      margin-bottom: 16px;
+      width: 200px;
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        color: #cc0066;
+      }
+
+      .brand-list,
+      .type-list {
+        margin-top: 0;
+        padding-top: 0;
+        display: flex;
+        align-items: center;
+        height: 30px;
+        background-color: white;
+        box-shadow: 1px 2px 1px rgba(7, 7, 7, 0.1);
+        ::ng-deep {
+          .mdc-list-item__primary-text {
+            font-size: 12px !important;
+          }
+          .mdc-radio__background {
+            height: 12px !important;
+            width: 12px !important;
+          }
+          .mdc-radio__outer-circle {
+            height: 12px;
+            width: 12px;
+          }
+          .mdc-radio__inner-circle {
+            height: 6px !important;
+            width: 6px !important;
+          }
+        }
+      }
+    }
   }
-}
 
-.custom-select {
-  appearance: none; /* Remove default styling on certain browsers */
-  padding: 6px 20px;
-  font-size: 16.5px;
-  cursor: pointer;
-  outline: none; /* Remove outline on focus */
-  width: 260px;
-  height: 40px;
-  box-shadow: 3px 3px 3px rgba(7, 7, 7, 0.1);
-  background-color: rgb(252, 251, 251);
-  border: none;
-  // border-left: 0.5px solid #e8dbd9;
-  // border-top: 0.5px solid #e8dbd9;
-}
+  .products-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 8px;
 
-.custom-select:after {
-  /* ata kaj kore na*/
-  content: "\25BC"; /* Unicode for a down-pointing triangle */
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  border: none;
-  background-color: #3f51b5;
-}
+    .section-header-div {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
 
-// /* Content section */
-// .content-section {
-//   flex: 0 0 75%;
-//   flex-direction: column;
-// }
+      .searching-box {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-left: 12px;
+        padding-right: 24px;
 
-// /* Header Styles */
-// header {
-//   display: block;
-// }
+        .input-btn {
+          height: 24.5px;
+          width: 300px;
+          padding-left: 12px;
+          border: 1px solid #cc0066;
+          border-radius: 28px;
+          background-color: white;
+        }
+        .mat-mdc-outlined-button {
+          padding: 0 10px !important;
+          height: 28px;
+          min-width: fit-content;
+          border-color: #cc0066;
+          background-color: white;
+          color: #cc0066;
+          font-size: 12px;
+          transition: background-color 0.1s ease;
+          &:hover {
+            background-color: #cc0066;
+            color: white;
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
 
-/* Input and Button Container Styles */
-.input-btn-container {
-  // display: flex;
-  // margin-left: 10px;
-  // justify-content: flex-end;
-  // align-items: flex-end;
+    .products-div {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      align-items: center;
 
-  // margin-top: 2px;
-  // justify-content: center;
-  // align-items: center;
-}
+      .single-product-div {
+        margin-right: 12px;
+        margin-bottom: 12px;
+      }
+    }
 
-.mat-mdc-form-field-focus-overlay {
-  background-color: white;
-}
-
-/* Form Control (Input) Styles */
-.form-control {
-  margin-right: 15px;
-  margin-left: 10px;
-  background-color: rgb(252, 251, 251);
-  // color: #3f51b5;
-  width: 350px;
-  height: 36px;
-  border: 1px solid #cc0066;
-  border-radius: 20px;
-  margin-top: -2.5px;
-  padding-left: 16px;
-  // margin-bottom: 10px;
-}
-
-.search-btn {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 10px;
-  background-color: #cc0066;
-  color: white;
-  width: 110px;
-  height: 40px;
-  font-size: 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.1s ease;
-}
-
-.search-btn:hover {
-  background-color: rgb(71, 71, 210);
-  transform: scale(1.05);
-}
-
-.reset-btn {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 10px;
-  background-color: #cc0066;
-  color: white;
-  width: 110px;
-  height: 40px;
-  font-size: 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.1s ease;
-}
-
-.reset-btn:hover {
-  background-color: rgb(55, 131, 55);
-  transform: scale(1.05);
+    .paginator-div {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  }
 }
