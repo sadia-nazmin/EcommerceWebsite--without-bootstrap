@@ -1,12 +1,11 @@
 .paginator {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  background-color: white;
-  box-shadow: 1px 2px 1px rgba(7, 7, 7, 0.1);
+  justify-content: center;
+  background-color: rgba(219, 212, 211, 0.2);
+  // box-shadow: 1px 2px 1px rgba(7, 7, 7, 0.1);
   color: #cc0066;
   height: 50px;
-  width: 800px;
+  width: 500px;
   margin-bottom: 8px;
-  margin-left: 50px;
 }

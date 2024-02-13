@@ -1,15 +1,17 @@
 <mat-card class="card" *ngIf="product">
-  <img class="img" src="{{ product.pictureUrl }}" alt="{{ product.name }}" />
+  <div class="image">
+    <img class="img" src="{{ product.pictureUrl }}" alt="{{ product.name }}" />
+    <div class="btn-div">
+      <button class="cart-btn">
+        <mat-icon class="icon">shopping_cart</mat-icon>
+      </button>
+      <button class="veiw-btn" routerLink="/shop/{{ product.id }}">View</button>
+    </div>
+  </div>
   <div class="card-body">
     <a class="product-name" href="">
       {{ product.name }}
     </a>
     <span class="product-price">{{ product.price | currency }}</span>
-    <div class="btn-div">
-      <button class="cart-btn">
-        <mat-icon class="icon">shopping_cart</mat-icon>
-      </button>
-      <button class="veiw-btn" routerLink="/shop/{{ product.id }}">Veiw</button>
-    </div>
   </div>
 </mat-card>

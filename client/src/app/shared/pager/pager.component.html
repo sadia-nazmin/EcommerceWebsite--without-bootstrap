@@ -1,11 +1,10 @@
 <mat-paginator
   class="paginator"
-  *ngIf="totalCount && pageSize && pageNumber"
   [length]="totalCount"
   [pageSize]="pageSize"
   [showFirstLastButtons]="true"
-  [pageIndex]="pageNumber"
-  (pageChanged)="onPagerChanged($event)"
+  [pageIndex]="pageNumber ? pageNumber - 1 : 0"
+  (page)="onPagerChanged($event)"
   aria-label="Select page"
 >
 </mat-paginator>

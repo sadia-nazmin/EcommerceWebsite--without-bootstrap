@@ -1,11 +1,74 @@
 .card {
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
-  background-color: white;
-  height: 400px;
+  background-color: rgb(251, 250, 250);
+  height: 372px;
   width: 290px;
+  border-radius: 0;
 
-  .img {
+  .image {
+    position: relative;
     background-color: rgb(229, 224, 224);
+
+    .img {
+      width: 290px;
+    }
+
+    .btn-div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(136, 129, 129, 0.5);
+      opacity: 0;
+      transition: all 0.3s;
+
+      .cart-btn,
+      .veiw-btn {
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgb(251, 250, 250);
+        color: #cc0066;
+        width: 84px;
+        height: 30px;
+        font-size: 14px;
+        border: 1px solid #cc0066;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        z-index: 1000;
+
+        .icon {
+          font-size: large;
+          padding: 4px;
+        }
+      }
+
+      .cart-btn:hover,
+      .veiw-btn:hover {
+        background-color: #cc0066;
+        color: white;
+      }
+    }
+  }
+
+  .image:hover {
+    opacity: 1;
+
+    & .btn-div {
+      opacity: 1;
+    }
+
+    & .cart-btn {
+      transform: translate(58px) !important;
+    }
+
+    & .veiw-btn {
+      transform: translate(-58px) !important;
+    }
   }
 
   .card-body {
@@ -27,42 +90,6 @@
       margin-bottom: 4px;
       font-size: 10px;
       color: #cc0066;
-    }
-
-    .btn-div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 4px;
-      margin-bottom: 4px;
-
-      .cart-btn,
-      .veiw-btn {
-        padding-left: 10px;
-        padding-right: 10px;
-        background-color: #cc0066;
-        color: white;
-        width: 84px;
-        height: 30px;
-        font-size: 14px;
-        border: 0.5px solid #cc0066;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.1s ease;
-
-        .icon {
-          font-size: large;
-          padding: 4px;
-        }
-      }
-
-      .cart-btn:hover,
-      .veiw-btn:hover {
-        transform: scale(1.07);
-        background-color: #cc0066;
-        color: black;
-      }
     }
   }
 }
