@@ -1,5 +1,4 @@
 .container {
-  position: relative;
   padding-top: 76px;
   max-width: 100%;
   padding-left: 15px;
@@ -7,10 +6,13 @@
   box-sizing: border-box;
   background-color: #fcf6f5;
   min-height: 100vh;
-
   .spinner {
-    position: absolute;
-    top: 45%;
-    right: 50%;
+    position: fixed;
+    z-index: 1000;
+    top: calc(50% - 60px);
+    right: calc(50% - 60px);
+  }
+  .test {
+    opacity: 0.3;
   }
 }

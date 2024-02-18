@@ -2,14 +2,14 @@
   <div class="image">
     <img class="img" src="{{ product.pictureUrl }}" alt="{{ product.name }}" />
     <div class="btn-div">
-      <button class="cart-btn">
+      <button class="cart-btn" (click)="addItemToBasket()">
         <mat-icon class="icon">shopping_cart</mat-icon>
       </button>
       <button class="veiw-btn" routerLink="/shop/{{ product.id }}">View</button>
     </div>
   </div>
   <div class="card-body">
-    <a class="product-name" href="">
+    <a class="product-name" routerLink="/shop/{{ product.id }}">
       {{ product.name }}
     </a>
     <span class="product-price">{{ product.price | currency }}</span>

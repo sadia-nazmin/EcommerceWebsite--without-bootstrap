@@ -6,12 +6,20 @@
       routerLink="/"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >Home</a
     >
-    <a class="nav-item" routerLink="/shop" routerLinkActive="active">Shop</a>
-    <a class="nav-item" routerLink="/contact" routerLinkActive="active"
-      >Contact</a
+      Home
+    </a>
+    <a
+      class="nav-item"
+      routerLink="/shop"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
     >
+      Shop
+    </a>
+    <a class="nav-item" routerLink="/contact" routerLinkActive="active">
+      Contact
+    </a>
   </nav>
   <div class="right-panel">
     <a href="#">
@@ -20,9 +28,14 @@
     <a href="#">
       <button mat-stroked-button>Sign up</button>
     </a>
-    <a href="#" class="cart">
+    <a routerLink="/basket" class="cart">
       <mat-icon class="cart-icon"> shopping_cart </mat-icon>
-      <div class="cart-no">3</div>
+      <div
+        *ngIf="basketService.basketSource$ | async as basket"
+        class="cart-no"
+      >
+        {{ getCountOfBasketItems(basket.items) }}
+      </div>
     </a>
   </div>
 </header>

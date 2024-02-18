@@ -1,0 +1,128 @@
+#container {
+  .no-item-div {
+    display: flex;
+    width: 100% !important;
+
+    .no-item {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 2px;
+      font-size: 20px;
+      font-weight: 460;
+      color: #cc0066;
+    }
+  }
+
+  .item-div {
+    display: flex;
+
+    .mat-elevation-z8 {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100% !important;
+      align-items: center;
+      box-shadow: 1px 2px 1px rgba(7, 7, 7, 0.1);
+
+      // .table-header {
+      //   justify-content: center;
+      //   align-items: center;
+      //   color: #cc0066;
+      //   font-weight: bold;
+      //   background-color: rgb(238, 234, 234);
+      // }
+
+      .product {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        height: 72px;
+
+        img {
+          max-height: 50px;
+          margin-right: 16px;
+          background-color: rgb(229, 224, 224);
+        }
+
+        .product-item-div {
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          flex-direction: column;
+
+          .item-name {
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 550;
+            font-size: 15px;
+            color: #88818a;
+          }
+
+          .item-type {
+            font-style: italic;
+            font-weight: 600;
+            font-size: 12px;
+            color: black;
+          }
+        }
+      }
+
+      .price {
+        align-items: center;
+        justify-content: center;
+
+        .item-price {
+          color: #88818a;
+        }
+      }
+
+      .quantity {
+        .icon {
+          color: #88818a;
+          font-size: 20px;
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+          transition: background-color 0.1s ease;
+          &:hover {
+            color: #cc0066;
+            transform: scale(1.03);
+          }
+        }
+
+        .item-quantity {
+          padding: 0px 8px;
+        }
+      }
+
+      .total {
+        align-items: center;
+        justify-content: center;
+
+        .item-total {
+          color: rgb(7, 117, 7);
+        }
+      }
+
+      .delete {
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+          color: #88818a;
+          font-size: 20px;
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+          transition: background-color 0.1s ease;
+          &:hover {
+            color: rgb(182, 11, 11);
+            transform: scale(1.09);
+          }
+        }
+      }
+    }
+  }
+}

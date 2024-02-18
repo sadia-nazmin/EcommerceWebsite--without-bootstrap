@@ -1,9 +1,9 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
   <div class="spinner">
-    <mat-spinner *ngIf="isLoading" color="accent">
-      <h3>Loading...</h3>
-    </mat-spinner>
+    <mat-spinner *ngIf="isLoading" color="accent" diameter="120"> </mat-spinner>
   </div>
-  <router-outlet></router-outlet>
+  <div [ngClass]="[isLoading ? 'test' : '']">
+    <router-outlet></router-outlet>
+  </div>
 </div>
