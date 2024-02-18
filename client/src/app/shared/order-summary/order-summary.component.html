@@ -1,0 +1,25 @@
+<div class="header">Order Summary</div>
+<div class="body">
+  <ul
+    class="list-body"
+    *ngIf="basketService.basketTotalSource$ | async as totals"
+  >
+    <li class="list">
+      <strong class="name">Order Subtotal</strong>
+      <strong class="price">{{ totals.subtotal | currency }}</strong>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="list">
+      <strong class="name">Shipping & Handling</strong>
+      <strong class="price">{{ totals.shipping | currency }}</strong>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="list">
+      <strong class="name">Total</strong>
+      <strong class="price">{{ totals.total | currency }}</strong>
+    </li>
+  </ul>
+  <p class="shipping-desc">
+    Shipping costs will be added based on choice made during checkout
+  </p>
+</div>

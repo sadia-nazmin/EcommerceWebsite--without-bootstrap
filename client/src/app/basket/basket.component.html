@@ -42,11 +42,12 @@
         <!-- <th class="table-header" mat-header-cell *matHeaderCellDef>Delete</th> -->
         <td class="delete" mat-cell *matCellDef="let item">
           <a>
+            <mat-icon class="fav-icon"> favorite </mat-icon>
             <mat-icon
               class="icon"
               (click)="removeQuantityAndItem(item.id, item.quantity)"
             >
-              delete_outline
+              delete
             </mat-icon>
           </a>
         </td>
@@ -55,5 +56,13 @@
       <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    <div class="order-summary-div">
+      <app-order-summary></app-order-summary>
+      <div class="checkout-div">
+        <a routerLink="/checkout">
+          <button class="checkout-btn">Proceed to checkout</button>
+        </a>
+      </div>
+    </div>
   </div>
 </div>

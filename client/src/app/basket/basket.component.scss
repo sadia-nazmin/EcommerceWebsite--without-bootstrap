@@ -17,6 +17,7 @@
 
   .item-div {
     display: flex;
+    flex-direction: column;
 
     .mat-elevation-z8 {
       flex-direction: row;
@@ -110,6 +111,20 @@
         align-items: center;
         justify-content: center;
 
+        .fav-icon {
+          color: #88818a;
+          font-size: 20px;
+          height: 20px;
+          width: 20px;
+          padding-right: 8px;
+          cursor: pointer;
+          transition: background-color 0.1s ease;
+          &:hover {
+            color: #cc0066;
+            transform: scale(1.09);
+          }
+        }
+
         .icon {
           color: #88818a;
           font-size: 20px;
@@ -118,8 +133,37 @@
           cursor: pointer;
           transition: background-color 0.1s ease;
           &:hover {
-            color: rgb(182, 11, 11);
+            color: rgb(205, 14, 14);
             transform: scale(1.09);
+          }
+        }
+      }
+    }
+
+    .order-summary-div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding-top: 16px;
+
+      .checkout-div {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 12px;
+
+        .checkout-btn {
+          color: white;
+          font-size: 16px;
+          height: 40px;
+          width: 200px;
+          border-radius: 5px;
+          background: #cc0066;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.1s ease;
+          &:hover {
+            transform: scale(1.05);
           }
         }
       }

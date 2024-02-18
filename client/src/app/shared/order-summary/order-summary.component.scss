@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(216, 212, 212);
+  padding-left: 4px 2px;
+  height: 44px;
+  width: 100%;
+  font-weight: bold;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 0 12px;
+  box-shadow: 1px 2px 1px rgba(7, 7, 7, 0.1);
+
+  .list-body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    .list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      height: 52px;
+
+      .name {
+        margin-left: 8px;
+        color: #88818a;
+      }
+
+      .price {
+        margin-right: 8px;
+        color: rgb(7, 117, 7);
+      }
+    }
+  }
+
+  .shipping-desc {
+    align-items: center;
+    justify-content: center;
+    color: #88818a;
+    padding: 8px;
+  }
+}
