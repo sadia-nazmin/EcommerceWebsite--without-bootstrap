@@ -1,4 +1,7 @@
 <div id="home">
+  <div class="featured">
+    <h3 class="welcome">Welcome to IcyT!cy</h3>
+  </div>
   <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="data">
     <div *nguCarouselDef="let item" class="carousel-div">
       <div class="img-div">
@@ -7,16 +10,10 @@
     </div>
     <ul class="pointers" NguCarouselPoint>
       <li
-        class="point"
-        *ngFor="let j of myCarousel.pointNumbers; let S = index"
+        *ngFor="let j of myCarousel.pointNumbers; let i = index"
         [class.active]="j == myCarousel.activePoint"
-        (click)="myCarousel.moveTo(j)"
+        (click)="myCarousel.moveTo(i)"
       ></li>
     </ul>
-    <div class="featured">
-      <div class="welcome">
-        <h2>Welcome to IcyT!cy</h2>
-      </div>
-    </div>
   </ngu-carousel>
 </div>

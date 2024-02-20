@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BusyService } from './core/services/busy.service';
 import { BasketService } from './basket/basket.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   constructor(
     private busyService: BusyService,
     private basketService: BasketService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,5 +38,9 @@ export class AppComponent implements OnInit {
     if (basketId) {
       this.basketService.getBasket(basketId);
     }
+  }
+
+  isCustomerServiceRoute() {
+    return this.router.url.includes('/customer-service');
   }
 }

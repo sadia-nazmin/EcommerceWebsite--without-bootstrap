@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CheckoutComponent } from './checkout.component';
+import { CustomerServiceComponent } from './customer-service.component';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [{ path: '', component: CheckoutComponent }];
+const routes: Routes = [{ path: '', component: CustomerServiceComponent }];
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CheckoutRoutingModule {}
+export class CustomerServiceRoutingModule {}

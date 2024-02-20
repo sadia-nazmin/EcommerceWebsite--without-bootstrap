@@ -14,6 +14,13 @@ const routes: Routes = [
       import('./basket/basket.module').then((m) => m.BasketModule),
   },
   {
+    path: 'customer-service',
+    loadChildren: () =>
+      import('./customer-service/customer-service.module').then(
+        (m) => m.CustomerServiceModule
+      ),
+  },
+  {
     path: 'checkout',
     loadChildren: () =>
       import('./checkout/checkout.module').then((m) => m.CheckoutModule),

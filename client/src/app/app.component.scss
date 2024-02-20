@@ -6,13 +6,44 @@
   box-sizing: border-box;
   background-color: #fcf6f5;
   min-height: 100vh;
+  position: relative;
+
   .spinner {
     position: fixed;
     z-index: 1000;
     top: calc(50% - 60px);
     right: calc(50% - 60px);
   }
+
   .test {
     opacity: 0.3;
+  }
+
+  .contract-us-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    bottom: 0;
+    right: 0;
+    margin-top: 40px;
+
+    .contract-us-btn {
+      color: white;
+      font-size: 12px;
+      height: 24px;
+      width: 80px;
+      border-radius: 5px;
+      background: #cc0066;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.1s ease;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }
