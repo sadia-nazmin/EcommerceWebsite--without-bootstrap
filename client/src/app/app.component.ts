@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BusyService } from './core/services/busy.service';
 import { BasketService } from './basket/basket.service';
 
@@ -13,16 +13,21 @@ export class AppComponent implements OnInit {
 
   constructor(
     private busyService: BusyService,
-    private basketService: BasketService
+    private basketService: BasketService,
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.isLoaderNeeded();
+    this.isBasketIdThere();
   }
 
   isLoaderNeeded() {
     this.busyService.isLoaderNeeded$.subscribe({
-      next: (response) => (this.isLoading = response),
+      next: (response) => {
+        this.isLoading = response;
+        this.cd.detectChanges();
+      },
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BasketService } from './basket.service';
 import { Basket, BasketItem } from '../shared/models/basket';
 
@@ -7,7 +7,7 @@ import { Basket, BasketItem } from '../shared/models/basket';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss'],
 })
-export class BasketComponent {
+export class BasketComponent implements OnInit {
   displayedColumns: string[] = [
     'product',
     'price',
@@ -16,12 +16,19 @@ export class BasketComponent {
     'delete',
   ];
 
-  dataSource = this.basketService.getCurrentBasketValue();
-  basketValue = this.dataSource && this.dataSource.items;
+  dataSource: Basket | null = null;
+  basketValue: BasketItem[] | null = null;
 
   constructor(private basketService: BasketService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.basketService.basketSource$.subscribe({
+      next: (res) => {
+        this.dataSource = res;
+        this.basketValue = this.dataSource && this.dataSource.items;
+      },
+    });
+  }
 
   addQuantity(item: BasketItem) {
     this.basketService.addItemToBasket(item);

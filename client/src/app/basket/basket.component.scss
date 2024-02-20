@@ -5,7 +5,6 @@
 
     .no-item {
       display: flex;
-      width: 100%;
       align-items: center;
       justify-content: center;
       padding: 16px 2px;
@@ -17,32 +16,29 @@
 
   .item-div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100% !important;
+    gap: 20px;
+
+    .mdc-data-table__table {
+      min-width: 65%;
+    }
 
     .mat-elevation-z8 {
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      width: 100% !important;
-      align-items: center;
+      display: table;
+      height: 100px !important;
+      margin-top: 16px;
       box-shadow: 1px 2px 1px rgba(7, 7, 7, 0.1);
-
-      // .table-header {
-      //   justify-content: center;
-      //   align-items: center;
-      //   color: #cc0066;
-      //   font-weight: bold;
-      //   background-color: rgb(238, 234, 234);
-      // }
 
       .product {
         display: flex;
         align-items: center;
         flex-direction: row;
-        height: 72px;
+        height: 100px !important;
 
         img {
-          max-height: 50px;
+          max-height: 64px;
           margin-right: 16px;
           background-color: rgb(229, 224, 224);
         }
@@ -58,12 +54,11 @@
             cursor: pointer;
             font-weight: 550;
             font-size: 15px;
-            color: #88818a;
+            color: #cc0066;
           }
 
           .item-type {
-            font-style: italic;
-            font-weight: 600;
+            font-weight: 550;
             font-size: 12px;
             color: black;
           }
@@ -80,6 +75,9 @@
       }
 
       .quantity {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
         .icon {
           color: #88818a;
           font-size: 20px;
@@ -95,6 +93,7 @@
 
         .item-quantity {
           padding: 0px 8px;
+          color: #88818a;
         }
       }
 
@@ -103,7 +102,7 @@
         justify-content: center;
 
         .item-total {
-          color: rgb(7, 117, 7);
+          color: #88818a;
         }
       }
 
@@ -143,20 +142,23 @@
     .order-summary-div {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      padding-top: 16px;
+      margin-top: 16px;
+      background-color: white;
+      box-shadow: 1px 2px 1px rgba(7, 7, 7, 0.1);
 
       .checkout-div {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        margin-top: 12px;
+        justify-content: center;
+        padding-bottom: 16px;
+        padding-left: 8px;
+        padding-right: 8px;
 
         .checkout-btn {
           color: white;
           font-size: 16px;
           height: 40px;
-          width: 200px;
+          width: 160px;
           border-radius: 5px;
           background: #cc0066;
           border: none;

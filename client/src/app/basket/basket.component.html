@@ -24,12 +24,14 @@
       </ng-container>
       <ng-container matColumnDef="quantity">
         <!-- <th class="table-header" mat-header-cell *matHeaderCellDef>Quantity</th> -->
-        <td class="quantity" mat-cell *matCellDef="let item">
-          <mat-icon class="icon" (click)="removeQuantityAndItem(item.id, 1)">
-            remove
-          </mat-icon>
-          <strong class="item-quantity">{{ item.quantity }}</strong>
-          <mat-icon class="icon" (click)="addQuantity(item)"> add </mat-icon>
+        <td mat-cell *matCellDef="let item">
+          <div class="quantity">
+            <mat-icon class="icon" (click)="removeQuantityAndItem(item.id, 1)">
+              remove
+            </mat-icon>
+            <strong class="item-quantity">{{ item.quantity }}</strong>
+            <mat-icon class="icon" (click)="addQuantity(item)"> add </mat-icon>
+          </div>
         </td>
       </ng-container>
       <ng-container matColumnDef="total">
