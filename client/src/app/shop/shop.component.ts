@@ -12,10 +12,12 @@ import { ShopParams } from '../shared/models/shopParams';
 })
 export class ShopComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
+  currentProducts: Product[] = [];
   products: Product[] = [];
   brands: Brand[] = [];
   types: Type[] = [];
   shopParams = new ShopParams();
+  pageSize = 6;
   selectedSortOption: string = 'name';
   sortOptions = [
     { name: 'Alphabetical', value: 'name' },
@@ -39,9 +41,18 @@ export class ShopComponent implements OnInit {
         this.shopParams.pageNumber = response.pageIndex;
         this.shopParams.pageSize = response.pageSize;
         this.totalCount = response.count;
+        this.getProductForPaginator(1);
       },
       error: (error) => console.log(error),
     });
+  }
+
+  getProductForPaginator(pageNumber: number) {
+    let startIndex = (pageNumber - 1) * this.pageSize;
+    let endIndex = pageNumber * this.pageSize;
+    this.currentProducts = [];
+    this.currentProducts = this.products.slice(startIndex, endIndex);
+    console.log(startIndex, endIndex);
   }
 
   getBrands() {
@@ -71,14 +82,22 @@ export class ShopComponent implements OnInit {
   }
 
   onSortSelected() {
-    this.shopParams.sort = this.selectedSortOption;
-    this.getProducts();
+    if (this.selectedSortOption === 'priceAsc') {
+      this.onPriceAsc();
+    } else if (this.selectedSortOption === 'priceDesc') {
+      this.onPriceDesc();
+    } else {
+      this.onAlphabetical();
+    }
+
+    this.getProductForPaginator(this.shopParams.pageNumber);
   }
 
-  onPageChanged(event: any) {
-    if (this.shopParams.pageNumber !== event) {
-      this.shopParams.pageNumber = event;
-      this.getProducts();
+  onPageChanged(nextPageNumber: number) {
+    if (this.shopParams.pageNumber !== nextPageNumber) {
+      this.shopParams.pageNumber = nextPageNumber;
+      // this.getProducts();
+      this.getProductForPaginator(nextPageNumber);
     }
   }
 
@@ -94,5 +113,44 @@ export class ShopComponent implements OnInit {
       this.shopParams = new ShopParams();
       this.getProducts();
     }
+  }
+
+  private onPriceAsc() {
+    for (let i = 0; i < this.products.length; i++) {
+      for (let j = 0; j < this.products.length; j++) {
+        if (this.products[j]?.price > this.products[j + 1]?.price) {
+          let p = this.products[j];
+          this.products[j] = this.products[j + 1];
+          this.products[j + 1] = p;
+        }
+      }
+    }
+    // console.log(this.products);
+  }
+
+  private onPriceDesc() {
+    for (let i = 0; i < this.products.length; i++) {
+      for (let j = 0; j < this.products.length; j++) {
+        if (this.products[j]?.price < this.products[j + 1]?.price) {
+          let p = this.products[j];
+          this.products[j] = this.products[j + 1];
+          this.products[j + 1] = p;
+        }
+      }
+    }
+    // console.log(this.products);
+  }
+
+  private onAlphabetical() {
+    for (let i = 0; i < this.products.length; i++) {
+      for (let j = 0; j < this.products.length; j++) {
+        if (this.products[j]?.name > this.products[j + 1]?.name) {
+          let p = this.products[j];
+          this.products[j] = this.products[j + 1];
+          this.products[j + 1] = p;
+        }
+      }
+    }
+    // console.log(this.products);
   }
 }
