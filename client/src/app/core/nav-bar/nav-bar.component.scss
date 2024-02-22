@@ -4,7 +4,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 60px;
   padding: 0 48px;
   border-bottom: 0.5px solid rgb(233, 222, 224);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,7 @@
     .nav-item {
       text-decoration: none;
       text-transform: uppercase;
-      font-size: 18px;
+      font-size: 20px;
       color: #cc0066;
     }
     .active {
@@ -49,7 +49,7 @@
       border-color: #cc0066;
       background-color: rgb(251, 250, 250);
       color: #cc0066;
-      font-size: 12px;
+      font-size: 14px;
       cursor: pointer;
       transition: background-color 0.1s ease;
       &:hover {
@@ -66,21 +66,21 @@
       .cart-icon {
         color: #cc0066;
         font-size: 28px;
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
       }
       .cart-no {
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: -7px;
-        right: -7px;
+        top: -6px;
+        right: -6px;
         background-color: rgb(193, 168, 172);
         color: white;
-        font-size: 12px;
-        height: 18px;
-        width: 18px;
+        font-size: 14px;
+        height: 20px;
+        width: 20px;
         border-radius: 50%;
       }
     }
