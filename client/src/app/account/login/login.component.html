@@ -1,0 +1,61 @@
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+      "
+    >
+      <div>
+        <h1>Login</h1>
+      </div>
+
+      <app-text-input
+        [formControl]="loginForm.controls['email']"
+        [label]="'email'"
+      >
+      </app-text-input>
+
+      <app-text-input
+        [formControl]="loginForm.controls['password']"
+        [label]="'password'"
+        [type]="hide ? 'password' : 'text'"
+      >
+      </app-text-input>
+
+      <!-- <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="password"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div> -->
+
+      <div>
+        <button
+          [disabled]="loginForm.invalid"
+          mat-flat-button
+          color="primary"
+          type="submit"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

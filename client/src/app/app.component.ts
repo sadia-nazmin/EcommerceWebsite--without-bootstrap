@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BusyService } from './core/services/busy.service';
 import { BasketService } from './basket/basket.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AccountService } from './account/account.service';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +17,14 @@ export class AppComponent implements OnInit {
     private busyService: BusyService,
     private basketService: BasketService,
     private cd: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private accountService: AccountService
   ) {}
 
   ngOnInit(): void {
     this.isLoaderNeeded();
     this.isBasketIdThere();
+    this.loadCurrentUser();
   }
 
   isLoaderNeeded() {
@@ -42,5 +45,10 @@ export class AppComponent implements OnInit {
 
   isCustomerServiceRoute() {
     return this.router.url.includes('/customer-service');
+  }
+
+  loadCurrentUser() {
+    const token = localStorage.getItem('token');
+    this.accountService.loadCurrentUser(token).subscribe();
   }
 }

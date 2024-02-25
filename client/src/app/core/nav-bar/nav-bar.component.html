@@ -22,12 +22,6 @@
     </a>
   </nav>
   <div class="right-panel">
-    <a href="#">
-      <button mat-stroked-button>Login</button>
-    </a>
-    <a href="#">
-      <button mat-stroked-button>Sign up</button>
-    </a>
     <a routerLink="/basket" class="cart">
       <mat-icon class="cart-icon"> shopping_cart </mat-icon>
       <div
@@ -37,5 +31,40 @@
         {{ getCountOfBasketItems(basket.items) }}
       </div>
     </a>
+
+    <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+      <a routerLink="/account/login">
+        <button mat-stroked-button>Login</button>
+      </a>
+      <a routerLink="/account/signup">
+        <button mat-stroked-button>Sign up</button>
+      </a>
+    </ng-container>
+
+    <ng-container *ngIf="accountService.currentUser$ | async as user">
+      <div class="display-name">
+        <mat-accordion>
+          <mat-expansion-panel style="box-shadow: none">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Welcome {{ user.displayName }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>
+              <mat-icon>shopping_cart</mat-icon>
+              <a routerLink="/basket">View cart</a>
+            </p>
+            <p>
+              <mat-icon>restore_page</mat-icon>
+              <a routerLink="/">View orders</a>
+            </p>
+            <p>
+              <mat-icon>exit_to_app</mat-icon>
+              <span (click)="accountService.logout()">Logout</span>
+            </p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </ng-container>
   </div>
 </header>

@@ -1,0 +1,47 @@
+<div>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+      "
+    >
+      <div>
+        <h1>Sign up</h1>
+      </div>
+
+      <app-text-input
+        [formControl]="signupForm.controls['displayName']"
+        [label]="'Name'"
+      >
+      </app-text-input>
+
+      <app-text-input
+        [formControl]="signupForm.controls['email']"
+        [label]="'Email'"
+      >
+      </app-text-input>
+
+      <app-text-input
+        [formControl]="signupForm.controls['password']"
+        [label]="'Password'"
+        [type]="hide ? 'password' : 'text'"
+      >
+      </app-text-input>
+
+      <div>
+        <button
+          [disabled]="signupForm.invalid"
+          mat-flat-button
+          color="primary"
+          type="submit"
+        >
+          Sign up
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
