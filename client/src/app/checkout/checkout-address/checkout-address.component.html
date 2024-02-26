@@ -1,0 +1,41 @@
+<form *ngIf="checkoutForm" [formGroup]="checkoutForm">
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    "
+  >
+    <h4>Shipping address</h4>
+    <button mat-stroked-button color="accent">Save as default address</button>
+  </div>
+  <div
+    formGroupName="addressForm"
+    style="display: flex; flex-wrap: wrap; gap: 20px"
+  >
+    <div>
+      <app-text-input [label]="'First name'" formControlName="firstName">
+      </app-text-input>
+    </div>
+    <div>
+      <app-text-input [label]="'Last name'" formControlName="lastName">
+      </app-text-input>
+    </div>
+    <div>
+      <app-text-input [label]="'Street'" formControlName="street">
+      </app-text-input>
+    </div>
+    <div>
+      <app-text-input [label]="'City'" formControlName="city"> </app-text-input>
+    </div>
+    <div>
+      <app-text-input [label]="'State'" formControlName="state">
+      </app-text-input>
+    </div>
+    <div>
+      <app-text-input [label]="'Zip code'" formControlName="zipcode">
+      </app-text-input>
+    </div>
+  </div>
+</form>

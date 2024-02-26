@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TextInputComponent } from './text-input/text-input.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { StepperComponent } from './stepper/stepper.component';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
     PagerComponent,
     OrderSummaryComponent,
     TextInputComponent,
+    StepperComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +28,8 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
+    CdkStepperModule,
   ],
   exports: [
     MatPaginatorModule,
@@ -32,6 +38,8 @@ import { MatInputModule } from '@angular/material/input';
     OrderSummaryComponent,
     ReactiveFormsModule,
     TextInputComponent,
+    StepperComponent,
+    CdkStepperModule,
   ],
 })
 export class SharedModule {}

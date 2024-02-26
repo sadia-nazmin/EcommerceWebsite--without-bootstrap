@@ -1,0 +1,20 @@
+<div>
+  <ul style="display: flex; flex-direction: row">
+    <li
+      *ngFor="let value of steps; let i = index"
+      style="display: flex; text-decoration: none"
+    >
+      <button
+        mat-button
+        color="accent"
+        (click)="onClick(i)"
+        [ngClass]="{ active: selectedIndex === i }"
+      >
+        {{ value.label }}
+      </button>
+    </li>
+  </ul>
+  <div *ngIf="selected">
+    <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+  </div>
+</div>
