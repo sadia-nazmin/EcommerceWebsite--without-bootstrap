@@ -1,65 +1,19 @@
 <div id="container">
-  <div class="no-item-div" *ngIf="!basketValue">
+  <div
+    class="no-item-div"
+    *ngIf="(basketService.basketSource$ | async) === null"
+  >
     <p class="no-item">There is no item in your cart</p>
   </div>
-  <div class="item-div" *ngIf="basketValue">
-    <table mat-table [dataSource]="basketValue" class="mat-elevation-z8">
-      <ng-container matColumnDef="product">
-        <!-- <th class="table-header" mat-header-cell *matHeaderCellDef>Product</th> -->
-        <td class="product" mat-cell *matCellDef="let item">
-          <img src="{{ item.pictureUrl }}" alt="{{ item.productName }}" />
-          <div class="product-item-div">
-            <a class="item-name" routerLink="/shop/{{ item.id }}">
-              {{ item.productName }}
-            </a>
-            <span class="item-type"> Type: {{ item.type }}</span>
-          </div>
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="price">
-        <!-- <th class="table-header" mat-header-cell *matHeaderCellDef>Price</th> -->
-        <td class="price" mat-cell *matCellDef="let item">
-          <strong class="item-price">{{ item.price | currency }}</strong>
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="quantity">
-        <!-- <th class="table-header" mat-header-cell *matHeaderCellDef>Quantity</th> -->
-        <td mat-cell *matCellDef="let item">
-          <div class="quantity">
-            <mat-icon class="icon" (click)="removeQuantityAndItem(item.id, 1)">
-              remove
-            </mat-icon>
-            <strong class="item-quantity">{{ item.quantity }}</strong>
-            <mat-icon class="icon" (click)="addQuantity(item)"> add </mat-icon>
-          </div>
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="total">
-        <!-- <th class="table-header" mat-header-cell *matHeaderCellDef>Total</th> -->
-        <td class="total" mat-cell *matCellDef="let item">
-          <strong class="item-total">${{ item.price * item.quantity }}</strong>
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="delete">
-        <!-- <th class="table-header" mat-header-cell *matHeaderCellDef>Delete</th> -->
-        <td class="delete" mat-cell *matCellDef="let item">
-          <a>
-            <mat-icon class="fav-icon"> favorite </mat-icon>
-            <mat-icon
-              class="icon"
-              (click)="removeQuantityAndItem(item.id, item.quantity)"
-            >
-              delete
-            </mat-icon>
-          </a>
-        </td>
-      </ng-container>
-
-      <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
+  <div class="item-div" *ngIf="(basketService.basketSource$ | async) != null">
+    <app-basket-summary
+      class="basket-summary-div"
+      (addItem)="addQuantity($event)"
+      (removeItem)="removeQuantityAndItem($event)"
+    >
+    </app-basket-summary>
     <div class="order-summary-div">
-      <app-order-summary></app-order-summary>
+      <app-order-summary> </app-order-summary>
       <div class="checkout-div">
         <a routerLink="/checkout">
           <button class="checkout-btn">Proceed to checkout</button>

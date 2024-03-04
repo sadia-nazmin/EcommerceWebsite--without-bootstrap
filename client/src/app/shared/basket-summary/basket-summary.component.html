@@ -1,0 +1,61 @@
+<table
+  mat-table
+  *ngIf="basketValue"
+  [dataSource]="basketValue"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="product">
+    <td class="product" mat-cell *matCellDef="let item">
+      <img src="{{ item.pictureUrl }}" alt="{{ item.productName }}" />
+      <div class="product-item-div">
+        <a class="item-name" routerLink="/shop/{{ item.id }}">
+          {{ item.productName }}
+        </a>
+        <span class="item-type"> Type: {{ item.type }}</span>
+      </div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <td class="price" mat-cell *matCellDef="let item">
+      <strong class="item-price">{{ item.price | currency }}</strong>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="quantity">
+    <td mat-cell *matCellDef="let item">
+      <div class="quantity">
+        <mat-icon
+          *ngIf="isBasket"
+          class="icon"
+          (click)="removeBasketItem(item.id, 1)"
+        >
+          remove
+        </mat-icon>
+        <strong class="item-quantity">{{ item.quantity }}</strong>
+        <mat-icon *ngIf="isBasket" class="icon" (click)="addBasketItem(item)">
+          add
+        </mat-icon>
+      </div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="total">
+    <td class="total" mat-cell *matCellDef="let item">
+      <strong class="item-total">{{
+        item.price * item.quantity | currency
+      }}</strong>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <td class="delete" mat-cell *matCellDef="let item">
+      <a *ngIf="isBasket">
+        <mat-icon class="fav-icon"> favorite </mat-icon>
+        <mat-icon
+          class="icon"
+          (click)="removeBasketItem(item.id, item.quantity)"
+        >
+          delete
+        </mat-icon>
+      </a>
+    </td>
+  </ng-container>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

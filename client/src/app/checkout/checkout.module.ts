@@ -9,6 +9,9 @@ import { CheckoutReviewComponent } from './checkout-review/checkout-review.compo
 import { CheckoutPaymentComponent } from './checkout-payment/checkout-payment.component';
 import { CheckoutSuccessComponent } from './checkout-success/checkout-success.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,14 @@ import { MatButtonModule } from '@angular/material/button';
     CheckoutPaymentComponent,
     CheckoutSuccessComponent,
   ],
-  imports: [CommonModule, CheckoutRoutingModule, SharedModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    CheckoutRoutingModule,
+    SharedModule,
+    MatButtonModule,
+    MatRadioModule,
+    FormsModule,
+    MatIconModule,
+  ],
 })
 export class CheckoutModule {}

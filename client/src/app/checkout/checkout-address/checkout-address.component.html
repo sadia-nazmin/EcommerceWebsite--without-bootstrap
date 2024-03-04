@@ -8,7 +8,17 @@
     "
   >
     <h4>Shipping address</h4>
-    <button mat-stroked-button color="accent">Save as default address</button>
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="saveUserAddress()"
+      [disabled]="
+        !checkoutForm.get('addressForm')?.valid ||
+        !checkoutForm.get('addressForm')?.dirty
+      "
+    >
+      Save as default address
+    </button>
   </div>
   <div
     formGroupName="addressForm"
@@ -39,3 +49,20 @@
     </div>
   </div>
 </form>
+<div
+  style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  "
+>
+  <button mat-stroked-button color="accent" routerLink="/basket">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    Back to Cart
+  </button>
+  <button mat-stroked-button color="accent" cdkStepperNext>
+    Go to Delivery
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

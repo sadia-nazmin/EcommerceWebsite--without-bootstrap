@@ -1,1 +1,20 @@
-<p>checkout-review works!</p>
+<div>
+  <app-basket-summary [isBasket]="false"></app-basket-summary>
+</div>
+<div
+  style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  "
+>
+  <button mat-stroked-button color="accent" cdkStepperPrevious>
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    Back to Delivery
+  </button>
+  <button mat-stroked-button color="accent" cdkStepperNext>
+    Go to Payment
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

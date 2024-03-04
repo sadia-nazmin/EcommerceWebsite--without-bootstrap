@@ -1,1 +1,19 @@
 <p>checkout-payment works!</p>
+
+<div
+  style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  "
+>
+  <button mat-stroked-button color="accent" cdkStepperPrevious>
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    Back to Review
+  </button>
+  <button mat-stroked-button color="accent" (click)="placeOrder()">
+    Place Order
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

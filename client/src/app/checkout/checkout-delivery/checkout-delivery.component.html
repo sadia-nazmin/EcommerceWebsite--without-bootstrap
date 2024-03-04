@@ -1,1 +1,38 @@
-<p>checkout-delivery works!</p>
+<form *ngIf="checkoutForm" [formGroup]="checkoutForm">
+  <div
+    formGroupName="deliveryForm"
+    style="display: flex; flex-wrap: wrap; gap: 20px"
+  >
+    <div *ngFor="let value of deliveryMethods">
+      <input
+        type="radio"
+        value="{{ value.id }}"
+        id="{{ value.id }}"
+        formControlName="deliveryMethod"
+        (click)="setShippingPrice(value)"
+      />
+      <label id="example-radio-group-label" for="{{ value.id }}">
+        <strong> {{ value.shortName }} - {{ value.price | currency }} </strong>
+        <br />
+        <span> {{ value.description }} </span>
+      </label>
+    </div>
+  </div>
+</form>
+<div
+  style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  "
+>
+  <button mat-stroked-button color="accent" cdkStepperPrevious>
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    Back to Address
+  </button>
+  <button mat-stroked-button color="accent" cdkStepperNext>
+    Go to Review
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

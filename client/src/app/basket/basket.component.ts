@@ -7,38 +7,14 @@ import { Basket, BasketItem } from '../shared/models/basket';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss'],
 })
-export class BasketComponent implements OnInit {
-  displayedColumns: string[] = [
-    'product',
-    'price',
-    'quantity',
-    'total',
-    'delete',
-  ];
-
-  dataSource: Basket | null = null;
-  basketValue: BasketItem[] | null = null;
-
-  constructor(private basketService: BasketService) {}
-
-  ngOnInit(): void {
-    this.basketService.basketSource$.subscribe({
-      next: (res) => {
-        this.dataSource = res;
-        this.basketValue = this.dataSource && this.dataSource.items;
-      },
-    });
-  }
+export class BasketComponent {
+  constructor(public basketService: BasketService) {}
 
   addQuantity(item: BasketItem) {
     this.basketService.addItemToBasket(item);
-    this.dataSource = this.basketService.getCurrentBasketValue();
-    this.basketValue = this.dataSource && this.dataSource.items;
   }
 
-  removeQuantityAndItem(id: number, quantity: number) {
-    this.basketService.removeItemFromBasket(id, quantity);
-    this.dataSource = this.basketService.getCurrentBasketValue();
-    this.basketValue = this.dataSource && this.dataSource.items;
+  removeQuantityAndItem(event: { id: number; quantity: number }) {
+    this.basketService.removeItemFromBasket(event.id, event.quantity);
   }
 }

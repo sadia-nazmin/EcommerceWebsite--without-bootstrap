@@ -12,6 +12,11 @@ import { MatInputModule } from '@angular/material/input';
 import { StepperComponent } from './stepper/stepper.component';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import { BasketSummaryComponent } from './basket-summary/basket-summary.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
     OrderSummaryComponent,
     TextInputComponent,
     StepperComponent,
+    BasketSummaryComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +36,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatButtonModule,
     CdkStepperModule,
+    MatTableModule,
+    MatIconModule,
+    RouterModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatPaginatorModule,
@@ -40,6 +50,7 @@ import { MatButtonModule } from '@angular/material/button';
     TextInputComponent,
     StepperComponent,
     CdkStepperModule,
+    BasketSummaryComponent,
   ],
 })
 export class SharedModule {}
